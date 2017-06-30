@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render correctly 1`] = `
+<footer>
+  Author 
+  <a
+    href="https://github.com/tpgmartin"
+    target="_blank"
+  >
+    @tpgmartin
+  </a>
+</footer>
+`;
