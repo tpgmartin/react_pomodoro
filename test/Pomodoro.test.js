@@ -1,12 +1,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Footer from '../src/Footer'
+import Pomodoro from '../src/Pomodoro'
 
-describe('<Footer />', () => {
+describe('<Pomodoro />', () => {
 
   it('should render correctly', () => {
     const component = renderer.create(
-      <Footer></Footer>
+      <Pomodoro></Pomodoro>
     ).toJSON()
     expect(component).toMatchSnapshot()
   })

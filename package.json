@@ -28,6 +28,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "scripts": {
+    "dev": "node server",
     "test": "jest"
   },
   "repository": {

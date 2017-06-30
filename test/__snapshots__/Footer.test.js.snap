@@ -2,7 +2,7 @@
 
 exports[`<Footer /> should render correctly 1`] = `
 <footer>
-  Author 
+  Author
   <a
     href="https://github.com/tpgmartin"
     target="_blank"
