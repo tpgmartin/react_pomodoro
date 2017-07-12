@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pomodoro /> should render correctly 1`] = `<div />`;
+exports[`<Pomodoro /> 1`] = `
+<div
+  className="controls"
+>
+  <button
+    className="play btnIcon"
+    onClick={[Function]}
+  />
+  <button
+    className="pause btnIcon"
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`<Pomodoro /> 2`] = `
+<button
+  className="play btnIcon"
+  onClick={[Function]}
+/>
+`;
