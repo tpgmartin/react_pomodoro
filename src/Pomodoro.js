@@ -17,16 +17,22 @@ export default class Pomodoro extends React.Component {
   }
 
   _pause() {
+    this.setState({
+      play: false
+    })
   }
 
   _play() {
+    this.setState({
+      play: true
+    })
   }
 
   render() {
     return (
       <div className="controls">
-      <button className="play btnIcon" onClick={this._play}></button>
-      <button className="pause btnIcon" onClick={this._pause}></button>
+        <button className="play btnIcon" onClick={this._play}>Play</button>
+        <button className="pause btnIcon" onClick={this._pause}>Pause</button>
       </div>
     )
   }

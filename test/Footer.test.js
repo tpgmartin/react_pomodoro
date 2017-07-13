@@ -4,8 +4,8 @@ import Footer from '../src/Footer'
 
 test('<Footer />', () => {
 
-    const component = renderer.create(<Footer></Footer>)
-    const tree = component.toJSON()
+    const footer = renderer.create(<Footer></Footer>)
+    const tree = footer.toJSON()
     expect(tree).toMatchSnapshot()
 
 })
