@@ -3,14 +3,23 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Pomodoro from '../src/Pomodoro'
 
-test('<Pomodoro />', () => {
+describe('<Pomodoro />', () => {
 
   const pomodoro = shallow(<Pomodoro></Pomodoro>)
 
-  pomodoro.find('.play').simulate('click')
-  expect(pomodoro.state('play')).to.equal(true)
+  test('should display correct initial time of pomodoro', () => {
+    expect(pomodoro.state('time')).to.equal(1500)
+    expect(pomodoro.find('.time').text()).to.equal('25:00')
+  })
 
-  pomodoro.find('.pause').simulate('click')
-  expect(pomodoro.state('play')).to.equal(false)
+  test('should correctly handle click of play button', () => {
+    pomodoro.find('.play').simulate('click')
+    expect(pomodoro.state('play')).to.equal(true)
+  })
+
+  test('should correctly handle click of pause button', () => {
+    pomodoro.find('.pause').simulate('click')
+    expect(pomodoro.state('play')).to.equal(false)
+  })
 
 })
