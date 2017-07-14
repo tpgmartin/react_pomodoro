@@ -5,13 +5,26 @@ export default class Pomodoro extends React.Component {
   constructor() {
     super()
 
-    this._play = this._play.bind(this);
-    this._pause = this._pause.bind(this);
+    this.elapseTime = this.elapseTime.bind(this)
+    this.pause = this.pause.bind(this);
+    this.play = this.play.bind(this);
 
     this.state = {
       play: false,
       time: 1500,
       title: '',
+    }
+  }
+
+  elapseTime() {
+    if (!this.state.time) {
+      this.pause(0)
+    }
+    if (this.state.play) {
+      let updatedTime = this.state.time - 1
+      this.setState({
+        time: updatedTime
+      })
     }
   }
 
@@ -26,13 +39,26 @@ export default class Pomodoro extends React.Component {
     return (t < 10 ? '0' : '') + t
   }
 
-  _pause() {
+  restartInterval() {
+    clearInterval(this.interval)
+    this.interval = setInterval(this.elapseTime, 1000)
+  }
+
+  pause(resetFor = this.state.time) {
+    clearInterval(this.interval)
+
+    this.formatTime(resetFor)
+
     this.setState({
       play: false
     })
   }
 
-  _play() {
+  play() {
+    if (this.state.play) return
+
+    this.restartInterval()
+
     this.setState({
       play: true
     })
@@ -45,8 +71,9 @@ export default class Pomodoro extends React.Component {
           <span className="time">{this.formatTime(this.state.time)}</span>
         </div>
         <div className="controls">
-          <button className="play btnIcon" onClick={this._play}>Play</button>
-          <button className="pause btnIcon" onClick={this._pause}>Pause</button>
+          <button className="play btnIcon" onClick={this.play}>Play</button>
+          <button className="pause btnIcon" onClick={this.pause}>Pause</button>
+          <button className="reset btnIcon" onClick={this.reset}>Reset</button>
         </div>
       </div>
     )
